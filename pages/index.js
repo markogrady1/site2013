@@ -1,25 +1,23 @@
-import React from 'react';
-import useFetch from '../services/use-fetch';
+import { useState } from 'react';
+
 import Panel from '../components/panel';
 import Spinner from '../components/ui/spinner';
-import { arrayToMatrix } from '../utils/helpers';
+import { arrayToMatrix } from '../utils/helpers'
+import { getPagesList } from '../client/api-client';
 
 export default function Home(props) {
-  const { data: projects, loading, error } = useFetch('projects');
-
-  if (loading) return <Spinner />;
-
-  if (error) return <div></div>;
+  const [projects] = useState(props.homeData);
 
   if (!projects) return <Spinner />
 
   const panelRow = (val) => {
+    console.log(val)
     return (
       <Panel
         key={val.id}
-        name={val.name}
-        niceName={val.niceName}
-        content={val.content}
+        name={val.path}
+        niceName={val.title}
+        content={val.description}
       />
     );
   };
@@ -40,4 +38,14 @@ export default function Home(props) {
       })}
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const homeData = await getPagesList()
+
+  return {
+    props: {
+     homeData: homeData.content,
+    },
+  };
 }
