@@ -28,34 +28,11 @@ main {
   margin: 0 auto;
 }
 
-.bttn-grey {
-  color: #474646;
-  background-color: #ecedec;
-  font-size: 0.9rem;
-}
-
-.bttn {
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: 400;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  white-space: nowrap;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  border-radius: 3px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+/*
+-------------------------------------------------------
+------------------ BUTTON STYLE -----------------------
+-------------------------------------------------------
+*/
 
 .bttn:hover {
   /* background-color: red; */
@@ -71,6 +48,12 @@ fieldset[disabled] .bttn {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
+/*
+-------------------------------------------------------
+------------------ SPINNER  STYLE ---------------------
+-------------------------------------------------------
+*/
 
 .lds-container {
   margin-top: 50px;
@@ -102,6 +85,13 @@ fieldset[disabled] .bttn {
     transform: rotate(360deg);
   }
 }
+
+/*
+-------------------------------------------------------
+------------------ CONTAINER  STYLE -------------------
+-------------------------------------------------------
+*/
+
 .flex-container-small,
 .flex-container,
 .flex-container-thin,
@@ -186,15 +176,6 @@ fieldset[disabled] .bttn {
   text-align: center;
 }
 
-.panel-container {
-  /* box-shadow: 1px 1px 1px black */
-  box-shadow: 0 1px 0px 0 rgba(148, 147, 147, 0.1), 0 1px 0px 0 rgba(151, 149, 149, 0.26);
-  border-radius: 5px;
-  /* box-shadow: 0 1px 5px 0 rgba(148, 147, 147, 0.1), 0 1px 0px 0 rgba(151, 149, 149, 0.26); */
-
-
-}
-
 .flex-container > div .panel-desc {
   margin: 20px;
   /* color: red; */
@@ -215,6 +196,11 @@ fieldset[disabled] .bttn {
   border: 1px solid black;
 }
 
+/*
+-------------------------------------------------------
+------------------- HEADER  STYLE ---------------------
+-------------------------------------------------------
+*/
 .head {
   background-color: #f0f3f4;
   height: 60px;
@@ -388,7 +374,11 @@ fieldset[disabled] .bttn {
   color: #000;
 }
 
-/* FOOTER */
+/*
+-------------------------------------------------------
+------------------- FOOTER  STYLE ---------------------
+-------------------------------------------------------
+*/
 
 footer {
   width: 100%;
@@ -401,4 +391,21 @@ footer {
 
 footer .statement {
   text-align: center;
+}
+
+/*
+-------------------------------------------------------
+-------------- HIGHLIGHTER  STYLE ---------------------
+-------------------------------------------------------
+*/
+pre code {
+  border-radius: 5px;
+  background-color: #253237 !important;
+}
+
+p code {
+  border-radius: 3px;
+  /* background-color: #efeded !important; */
+  border: 1px solid #a9a9a9;
+  padding: 1px 5px 1px 5px;
 }

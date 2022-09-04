@@ -1,32 +1,28 @@
-import React from 'react'
-import useFetch from '../../services/use-fetch';
+import { useState } from 'react'
+
 import Panel from '../../components/panel';
 import Spinner from '../../components/ui/spinner';
 import { arrayToMatrix } from '../../utils/helpers';
+import { getArticles } from '../../client/api-client';
 
+export default function Blog(props) {
+  const [blogData] = useState(props.data.content)
 
-export default function Blog() {
-  const { data: projects, loading, error } = useFetch('blogs');
-
-  if (loading) return <Spinner />;
-
-  if (error) return <div></div>;
-
-  if (!projects) return <Spinner />
+  if (!blogData) return <Spinner />
 
   const panelRow = (val) => {
     return (
       <Panel
         onClick={() => console.log('clickedddd') }
         key={val.id}
-        name={val.name}
-        niceName={val.niceName}
-        content={val.content}
+        name={`blog/${val.id}`}
+        niceName={val.title}
+        content={val.description}
       />
     );
   };
 
-  const sortedProjects = arrayToMatrix(projects, 3);
+  const sortedProjects = arrayToMatrix(blogData, 3);
 
   return (
     <div>
@@ -44,5 +40,12 @@ export default function Blog() {
   );
 }
 
+export async function getServerSideProps(context) {
+  const data = await getArticles();
 
-
+  return {
+    props: {
+      data,
+    },
+  };
+}
