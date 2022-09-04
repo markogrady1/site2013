@@ -11,7 +11,6 @@ export default function Home(props) {
   if (!projects) return <Spinner />
 
   const panelRow = (val) => {
-    console.log(val)
     return (
       <Panel
         key={val.id}
@@ -45,7 +44,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-     homeData: homeData.content,
+     homeData: homeData.message,
     },
   };
 }
