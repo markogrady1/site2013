@@ -6,7 +6,7 @@ import { arrayToMatrix } from '../../utils/helpers';
 import { getArticles } from '../../client/api-client';
 
 export default function Blog(props) {
-  const [blogData] = useState(props.data.content)
+  const [blogData] = useState(props.data.message)
 
   if (!blogData) return <Spinner />
 

@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import matter from 'gray-matter';
 import md from 'markdown-it';
+import hljs from 'highlight.js';
 
 import { getArticle } from '../../client/api-client';
 
-import hljs from 'highlight.js';
 
 export default function Page(props) {
   useEffect(() => {
@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {
   const { id } = context.params;
 
   const data = await getArticle(id);
-  const { data: frontmatter, content } = matter(data.content);
+  const { data: frontmatter, content } = matter(data.message);
 
   return {
     props: {

@@ -75,9 +75,7 @@ function buildGetOptions() {
  * @returns {string}
  */
 function buildCookie(userToken, adminToken) {
-  let cookie = `JWT=${userToken};`;
-  if (adminToken) cookie += `;AdminJWT=${adminToken}`;
-
+  let cookie = ``;
   return cookie;
 }
 
@@ -91,9 +89,6 @@ async function makeRequest(endpoint, options) {
   const response = await fetch(endpoint, options);
 
   const result = await response.json();
-
-
-  console.log('result', result)
 
   return result;
 }
