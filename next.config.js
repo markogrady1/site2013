@@ -5,7 +5,7 @@ const configs = {
     API: 'http://localhost:3311',
   },
   'production': {
-    API: 'https://fake-api.com',
+    API: 'http://52.19.37.216:3000',
   }
 };
 
