@@ -2,7 +2,6 @@ name: nodejs
 
 on:
 - push
-- pull_request
 
 jobs:
   test:
